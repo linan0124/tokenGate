@@ -1,0 +1,182 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Mercurity</title>
+    <meta name="description" content="Mercurity">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.ico">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="stylesheet" href="css/add.css">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+     <style>
+         .activation{
+             width: 50%;
+             /* height: 300px; */
+             background: #fff;
+             margin: 0 auto;
+             margin-top: 30px;
+             border-radius: 4px;
+         }
+         .logoBox{
+             width: 160px;
+             height: 38px;
+             background: url(./images/Mercuritylogo.png) no-repeat;
+             background-size: cover;
+             margin: 0 auto;
+             margin-top: 50px;
+         }
+         .activeTxt{
+             padding: 60px 40px 40px;
+             font-size: 18px;
+             text-align: center;
+         }
+         .okImg{
+             width: 18px;
+             height: 18px;
+             margin-right: 10px;
+             margin-top: 4px;
+         }
+         .okTip{
+             width: 94%;
+         }
+         .line{
+             width: 100%;
+             height: 1px;
+             background: #EAEFF3;
+             margin-top: 90px;
+         }
+         .transferredBox{
+             width: 100%;
+             height: 55px;
+             border-radius: 0 4px 4px 4px;
+             text-align: center;
+             line-height: 55px;
+             color: #007bff;
+             cursor: pointer;
+         }
+         .transferredBox:hover{
+             background: #f8f9fa;
+             border-radius: 0 4px 4px 4px;
+         }
+         
+     </style>
+
+</head>
+
+<body>
+    <div id="#container">
+        <div class="logoBox"></div>
+        <div class="activation">
+            <div class="activeTxt clearfix">
+            <img src="./images/okImg.png" alt="" class="okImg fl" id="okImg">
+            <img src="./images/noImg.png" alt="" class="okImg fl" id="okImg1">
+            <div class="okTip fl" id="okTip">Your account is activated， purchase your first coin now! </div>
+            </div>
+            <div class="line"></div>
+            <div class="transferredBox" id="transferredBox">For security purpose, please log in again.</div>
+        </div>
+
+    </div>
+
+    
+
+
+    <!-- Modernizr-3 -->
+    <!-- jQuery -->
+    <script src="../assets/plugins/common/common.min.js"></script>
+    <!-- custom scripts -->
+    <script src="js/scripts.js"></script>
+    <!-- new -->
+    <script src="../assets/plugins/chartjs/Chart.bundle.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/login.js"></script>
+<script>
+    function sendActive(){
+        
+        $.ajax({
+            url:'http://39.106.60.55:8081/user/activateAccount?code='+$.getUrlParam('code'),//验证码验证
+            type:"post",
+            dataType:'json',
+            async:false,
+            // timeout:30000,
+            headers: {"Content-Type": "application/json;charset=UTF-8"},
+           
+            // contentType:"application/json;charset=UTF-8",
+            success:function(data){//data,xhr,textStatus
+               
+                if(data.code==200){
+                  $('#okImg').show()
+                  $('#okImg1').hide()
+                //   $('#okTip').html('')
+                }else if(data.code==500){
+                    $('#okImg1').show()
+                    $('#okImg').hide()
+                    $('#okTip').html(data.message)
+                    
+                    // alert(data.message)
+                }
+            },
+            error:function(){//XMLHttpRequest, textStatus, errorThrown
+                // alert()
+            }
+        })//验证码ajax      
+}
+
+    $.getUrlParam = function (name) {
+    
+        let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+
+        let r = window.location.search.substr(1).match(reg);  //匹配目标参数
+
+        if (r != null) return unescape(r[2]); return null; //返回参数值
+    };
+    // let memoData = $.getUrlParam('memoData');
+    // console.log(memoData)
+
+    window.onload = function() {
+        sendActive()
+        
+    }
+
+     
+         
+
+    $(document).ready(function() {    
+            function jump(count) {    
+                window.setTimeout(function(){    
+                    count--;    
+                    if(count > 0) {    
+                        $('#transferredBox').attr('innerHTML', count);    
+                        jump(count);    
+                    } else {    
+                        $(location).attr('href', "login.html")   
+                    }    
+                }, 1000);    
+            }    
+            jump(3);    
+        });    
+    //  $('#transferredBox').click(function(){
+    //     $(location).attr('href', "login.html")
+        
+
+    //  })
+
+
+
+</script>
+
+</body>
+
+</html>

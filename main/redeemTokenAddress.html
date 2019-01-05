@@ -1,0 +1,541 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Mercurity</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.ico">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style media="screen">
+            .boxBorder{
+               border:1px solid #e7e7e7;
+               min-height:200px;
+            }
+            .bankAccountTip{
+                height: 18px;
+                line-height: 1;
+                color: #ed4014;
+                font-size: 12px;
+                padding-top: 3px;
+           }
+           .intermediaryBankNameTip{
+                height: 18px;
+                line-height: 1;
+                color: #ed4014;
+                font-size: 12px;
+                padding-top: 3px;
+           }
+           .intermediaryBankReferenceTip{
+                height: 18px;
+                line-height: 1;
+                color: #ed4014;
+                font-size: 12px;
+                padding-top: 3px;
+           }
+            .banknumberTip{
+                height: 18px;
+                line-height: 1;
+                color: #ed4014;
+                font-size: 12px;
+                padding-top: 3px;
+           }
+           .contactNameTip{
+                height: 18px;
+                line-height: 1;
+                color: #ed4014;
+                font-size: 12px;
+                padding-top: 3px;
+           }
+           .emailTip{
+                height: 18px;
+                line-height: 1;
+                color: #ed4014;
+                font-size: 12px;
+                padding-top: 3px;
+           }
+           .bankNameTip{
+                height: 18px;
+                line-height: 1;
+                color: #ed4014;
+                font-size: 12px;
+                padding-top: 3px;
+           }
+           .routingNumberTip{
+                height: 18px;
+                line-height: 1;
+                color: #ed4014;
+                font-size: 12px;
+                padding-top: 3px;
+           }
+           .SwiftCodeTip{
+                height: 18px;
+                line-height: 1;
+                color: #ed4014;
+                font-size: 12px;
+                padding-top: 3px;
+           }
+              /* loading */
+        .loading{
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background:rgba(255, 255, 255, 0.5);
+            z-index: 1000;
+        }
+        .loadingImg{
+            width: 170px;
+            height: 60px;
+            margin-left: 44%;
+            margin-top: 250px;
+        }
+        .mt15{
+            margin-top: 15px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="preloader" class="d-none">
+        <div class="loader d-none">
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__ball"></div>
+        </div>
+    </div>
+
+
+    <!-- header -->
+    <div class="header">
+            <div class="nav-header">
+                <div class="brand-logo">
+                    <a href="index.html">
+                        <!-- <i class="icofont icofont-dart"></i> -->   
+                        <span class="brand-title">Mercurity</span>
+                    </a>
+                </div>
+            </div>
+    
+            <div class="header-content">
+                <div class="header-left d-flex">
+                    <div class="nav-control">
+                        <div class="hamburger">
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                        </div>   
+                    </div>    
+                </div>
+            </div>
+            <div class="navbar-custom-menu pull-right d-flex nav-right">   
+                <div class="dropdown">
+                    <a class="dropdown-toggle user-profile-dropdown" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="user-img">
+                        </span>
+                        <span class="user-name" id="emailName"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#" id="logoutBtn">
+                            <i class="fa fa-power-off" aria-hidden="true"></i> Logout
+                        </a>
+                    </div>
+                </div>
+    
+            </div>
+    </div>
+    <!-- #/ header -->
+
+
+    <!-- sidebar -->
+    <div class="nk-sidebar">
+            <div class="nk-nav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li style="padding-top: 22px;">
+                        <a href="index.html" aria-expanded="true">
+                            <i class="fa fa-dashboard"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" aria-expanded="false" id="akyc">
+                            <i class="fa fa-user"></i>
+                            <span class="nav-text">KYC/AML</span>
+                        </a>
+                    </li>
+                    <li>
+                            <a class="has-arrow" href="#" aria-expanded="false">
+                                <i class="fa fa-folder-open"></i>
+                                <span class="nav-text">My Transaction</span>
+                            </a>
+                            <ul aria-expanded="false">
+                                    <li>
+                                        <a href="convertOrder.html">Purchase Order</a>
+                                    </li>
+                                    <li>
+                                        <a href="redeemOrder.html">Redeem Order</a>
+                                    </li>
+                            </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- #/ nk nav scroll -->
+    </div>
+    <!-- #/ sidebar -->
+
+    <div class="content-body" id="container">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="page-title">Set Payment Method</h2>
+                    <span class="mb-0">Please provide your bank account information, your redeemed fiat will be send to the nominated bank account. </span><br>
+                    <span class="mb-0">You are solely responsible for ensuring that the bank account information provided below is accurate and complete. Mercurity shall not be liable for any direct or indirect damages, losses or claims arising out of missing, incorrect or incomplete bank account information.</span>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="forms-section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="accordion table-data">
+                            <div class="card rounded-0 mt15">
+                                <div class="card-header">
+                                    <h4 class="mb-0">
+                                        Basic Information
+                                        <!-- <i class="fa pull-right accordion__angle--animated" aria-hidden="true"></i> -->
+                                    </h4>
+                                </div>
+                                <div id="basic-form" class="collapse show">
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="col-lg-12 m-b-30">
+                                                    <h6 style="float:left; margin-right:80px;">Payment Type</h6>
+                                                    <!-- <div class="cccCustomRadioContainer" style="float:left;margin-right:60px;"><input style="margin-right:20px;" type="radio" id="Bitfinex_USD_checkbox" value="ach" v-model="value"><label for="Ach"><span class="checkbox">Ach</span></label></div>
+                                                    <div class="cccCustomRadioContainer" style="float:left;margin-right:60px;"><input style="margin-right:20px;" type="radio" id="Bitfinex_USD_checkbox" value="check" v-model="value"><label for="Check"><span class="checkbox">Check</span></label></div> -->
+                                                    <!-- <div class="cccCustomRadioContainer" style="float:left"><input style="margin-right:20px;" type="radio" id="Bitfinex_USD_checkbox" value="Female" onchange="cccUpdateChart()" onclick="validateCheckboxes(event, this)"><label for="Bitfinex_USD_checkbox"><span class="checkbox">Credit-Card </span></label></div> -->
+                                                    <div class="cccCustomRadioContainer" style="float:left;margin-right:60px;"><input style="margin-right:20px;" type="radio" id="Bitfinex_USD_checkbox" value="wire" v-model="value"><label for="WireUs"></label><span class="checkbox">wire to US domestic bank account</span></label></div>
+                                                    <div class="cccCustomRadioContainer" style="float:left;margin-right:60px;"><input style="margin-right:20px;" type="radio" id="Bitfinex_USD_checkbox" value="wire_international" v-model="value"><label for="Wire"></label><span class="checkbox">wire to international bank account</span></label></div>
+                                                    <!-- <div class="cccCustomRadioContainer" style="float:left;margin-right:60px;"><input style="margin-right:20px;" type="radio" id="Bitfinex_USD_checkbox" value="Female"><label for="Bitfinex_USD_checkbox"><span class="checkbox">Wire-International</span></label></div> -->
+                                                </div>
+                                                <div class="col-lg-12" v-if="this.value=='wire'">
+                                                   
+                                                    <!-- <div class="col-lg-12 m-b-30">
+                                                        <h6 style="float:left; margin-right:80px;">Bank Account Type</h6>
+                                                        <div class="cccCustomRadioContainer" style="float:left;margin-right:60px;"><input style="margin-right:20px;" type="radio" id="Bitfinex_USD_checkbox" value="Male" onchange="cccUpdateChart()" onclick="validateCheckboxes(event, this)"><label for="Bitfinex_USD_checkbox"><span class="checkbox">Checking</span></label></div>
+                                                        <div class="cccCustomRadioContainer" style="float:left"><input style="margin-right:20px;" type="radio" id="Bitfinex_USD_checkbox" value="Female" onchange="cccUpdateChart()" onclick="validateCheckboxes(event, this)"><label for="Bitfinex_USD_checkbox"><span class="checkbox">Savings</span></label></div>
+                                                    </div> -->
+                                                    <div>
+                                                        <h6>Bank Account Name</h6>
+                                                        <input type="text" class="form-control" placeholder="The name on the bank account." v-model="bankAccountName" maxlength="100" @blur="bindBankAccount">
+                                                        <p class="bankAccountTip"></p>
+                                                    </div>
+                                                    <div>
+                                                        <h6>Bank Account Number</h6>
+                                                        <input type="text" class="form-control" placeholder="Example：153911747969" v-model="bankAccountNumber" @blur="bindBanknumber" maxlength="50">
+                                                        <p class="banknumberTip"></p>
+                                                    </div>
+                                                    <div>
+                                                        <h6>Contact Name</h6>
+                                                        <input type="text" class="form-control" placeholder="The name of who to contact related to any transactions using this payment method." v-model="contactName" maxlength="50" @blur="bindName">
+                                                        <p class="contactNameTip"></p>
+                                                    </div>
+                                                    <div>
+                                                        <h6>Contact Email</h6>
+                                                        <input type="text" class="form-control" placeholder=" The email on who to contact related to any transactions using this payment method." v-model="contactEmail" @blur="verifyFormat">
+                                                        <p class="emailTip"></p>
+                                                    </div>
+                                                    <div>
+                                                        <h6>Routing Number</h6>
+                                                        <input type="text" class="form-control" placeholder="The routing number for a US bank." v-model="routingNumber" maxlength="50" @blur="bindroutingNumber">
+                                                        <p class="routingNumberTip"></p>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-lg-12" v-else>
+                                                    
+                                                    <div>
+                                                        <h6>Bank Account Name</h6>
+                                                        <input type="text" class="form-control" placeholder="The name on the bank account." v-model="bankAccountName" maxlength="100" @blur="bindBankAccount">
+                                                        <p class="bankAccountTip"></p>
+                                                    </div>
+                                                    <div>
+                                                        <h6>Bank Account Number</h6>
+                                                        <input type="text" class="form-control" placeholder="Example：153911747969" v-model="bankAccountNumber" @blur="bindBanknumber" maxlength="50">
+                                                        <p class="banknumberTip"></p>
+                                                    </div>
+                                                    <div>
+                                                        <h6>Contact Name</h6>
+                                                        <input type="text" class="form-control" placeholder="The name of who to contact related to any transactions using this payment method." v-model="contactName" maxlength="50" @blur="bindName">
+                                                        <p class="contactNameTip"></p>
+                                                    </div>
+                                                    <div>
+                                                        <h6>Contact Email</h6>
+                                                        <input type="text" class="form-control" placeholder=" The email on who to contact related to any transactions using this payment method." v-model="contactEmail" @blur="verifyFormat">
+                                                        <p class="emailTip"></p>
+                                                    </div>
+                                                    <div>
+                                                        <h6>Bank Name</h6>
+                                                        <input type="text" class="form-control" placeholder="The name of the bank where a given account is held." v-model="bankName" maxlength="100" @blur="bindBankName">
+                                                        <p class="bankNameTip"></p>
+                                                    </div>
+                                                    <div>
+                                                        <h6>Intermediary Bank Name</h6>
+                                                        <input type="text" class="form-control" placeholder="The name of the intermediary bank on an international wire." v-model="intermediaryBankName" maxlength="200" @blur="bindIntermediaryBankName">
+                                                        <p class="intermediaryBankNameTip"></p>
+                                                    </div>
+                                                    <div>
+                                                        <h6>Intermediary Bank Reference</h6>
+                                                        <input type="text" class="form-control" placeholder="Special reference information required by an intermediary bank on an international wire." v-model="intermediaryBankReference" maxlength="200" @blur="bindIntermediaryBankReference">
+                                                        <p class="intermediaryBankReferenceTip"></p>
+                                                    </div>
+                                                    <div class="m-b-30">
+                                                        <h6>Swift Code</h6>
+                                                        <input type="text" class="form-control" placeholder="The SWIFT code used for international wires." v-model="swiftCode" @blur="bindSwiftCode">
+                                                        <p class="SwiftCodeTip"></p>
+                                                    </div>
+
+                                                </div>
+                                               
+                                            </div>
+
+                                        </form>
+                                        <div class="button-catagory flat-circular-buttons m-b-30">
+                                            <button type="button" class="btn button btn-success btn-radius" @click="setRedeemAddress">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="copyright">&copy; Copyright 2018 by Mercurity. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="loading" id="fakeLoader">
+        <img src="images/loading.gif" alt="" class="loadingImg">
+    </div>
+
+
+
+
+
+    <!-- Modernizr-3 -->
+    <!-- jQuery -->
+    <script src="../assets/plugins/common/common.min.js"></script>
+
+
+    <!-- custom scripts -->
+    <script src="js/scripts.js"></script>
+    <!-- new -->
+    <script src="js/vue.min.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/login.js"></script>
+
+    <script>
+            var vue = new Vue({
+                  el:'#container',
+                  data: function data() {
+                    return {
+                        value: '',
+                        achCheckType: 'natural_person',
+                        bankAccountName: '',
+                        bankAccountType: 'Checking',
+                        bankAccountNumber: '',
+                        contactEmail: '',
+                        contactName: '',
+                        intermediaryBankName: '',
+                        intermediaryBankReference: '',
+                        routingNumber: '',
+                        swiftCode: '',
+                        bankName:''
+
+                    };
+                  },
+                  components: {},
+                  methods: {
+                    bindBankName(){
+                       if(this.bankName==''){
+                           $('.bankNameTip').html('This field is required!')
+                       }else{
+                           $('.bankNameTip').html('')
+                       }
+                    },
+                    bindBankAccount(){
+                       if(this.bankAccountName==''){
+                           $('.bankAccountTip').html('This field is required!')
+                       }else{
+                           $('.bankAccountTip').html('')
+                       }
+                    },
+                    bindIntermediaryBankName(){
+                       if(this.intermediaryBankName==''){
+                           $('.intermediaryBankNameTip').html('This field is required!')
+                       }else{
+                           $('.intermediaryBankNameTip').html('')
+                       }
+                    },
+                    bindIntermediaryBankReference(){
+                       if(this.intermediaryBankReference==''){
+                           $('.intermediaryBankReferenceTip').html('This field is required!')
+                       }else{
+                           $('.intermediaryBankReferenceTip').html('')
+                       }
+                    },
+                    bindBanknumber () {
+                        var reg = /^[0-9]{4,17}$/
+                        if(this.bankAccountNumber==''){
+                            $('.banknumberTip').html('This field is required!')
+                        }
+                        else if (!reg.test(this.bankAccountNumber) && this.bankAccountNumber) {
+                            $('.banknumberTip').html('Wrong format of bank account!')
+                           
+                        } else {
+                            $('.banknumberTip').html('')
+                        }
+                    },
+                    verifyFormat () {
+                        const regn = /^[1-9a-zA-Z_]\w*@[a-zA-Z0-9]+(\.[a-zA-Z]{2,})+$/
+                        if(this.contactEmail==''){
+                            $('.emailTip').html('This field is required!')
+                        }
+                        else if (!regn.test(this.contactEmail) && this.contactEmail) {
+                            $('.emailTip').show().html('Email format error!')
+                        } else {
+                            $('.emailTip').html('')
+                        }
+                    },
+                    bindName () {
+                        const regn = /^([a-zA-Z\s]+)$/
+                        if(this.contactName==''){
+                            $('.contactNameTip').html('This field is required!')
+                        }
+                        else if (!regn.test(this.contactName) && this.contactName) {
+                            $('.contactNameTip').show().html('The contact name format error!')
+                        } else {
+                            $('.contactNameTip').html('')
+                        }
+                    },
+                    bindroutingNumber () {
+                        const regns = /^[0-9]*$/
+                        if(this.routingNumber==''){
+                            $('.routingNumberTip').html('This field is required!')
+                        }
+                        else if (!regns.test(this.routingNumber) && this.routingNumber) {
+                            $('.routingNumberTip').html('Routing-number format error!')
+                        } else {
+                            $('.routingNumberTip').html('')
+                        }
+                    },
+                    bindSwiftCode () {
+                        const regns = /^[0-9a-zA-Z]*$/
+                        if(this.swiftCode==''){
+                            $('.SwiftCodeTip').html('This field is required!')
+                        }
+                        else if (!regns.test(this.swiftCode) && this.swiftCode) {
+                            $('.SwiftCodeTip').html('Wrong format for Swift-code!')
+                        } else {
+                            $('.SwiftCodeTip').html('')
+                        }
+                    },
+                    setRedeemAddress () {
+                        
+                         if (
+                            this.value === '' ||
+                            this.bankAccountName === '' ||
+                            this.bankAccountNumber === '' ||
+                            this.contactEmail === '' ||
+                            this.contactName === '' 
+                    ) {
+                        alert('error:Incomplete information,please confirm the above requirements to proceed.')
+                    } else {
+                        $('#fakeLoader').show()
+                        axios({
+                                method: 'post',
+                                url: 'http://39.106.60.55:8081/user/setPaymentMethod',
+                                headers:{
+                                    token:localStorage.getItem('loginToken')
+                                },
+                                params: {
+                                    achCheckType: this.achCheckType,
+                                    bankAccountName: this.bankAccountName,
+                                    bankAccountType: this.bankAccountType,
+                                    bankAccountNumber: this.bankAccountNumber,
+                                    contactEmail: this.contactEmail,
+                                    contactName: this.contactName,
+                                    intermediaryBankName: this.intermediaryBankName,
+                                    intermediaryBankReference: this.intermediaryBankReference,
+                                    paymentType: this.value,
+                                    routingNumber: this.routingNumber,
+                                    swiftCode: this.swiftCode,
+                                    bankName:this.bankName
+                                }
+                            }).then(response => {
+                                var data = response.data
+                                if (data.code === '200') {
+                                    $('#fakeLoader').hide()
+                                    $(location).attr('href', "redeemToken.html")
+                                    
+                                } else if (data.code === '500') {
+                                    $('#fakeLoader').hide()
+                                    if(data.data.status==='499'){
+                                        localStorage.clear()
+                                        $(location).attr('href', 'login.html')
+                                    }
+                                    alert(data.message)
+                                }else if(data.code==='499'){
+                                    localStorage.clear()
+                                    $(location).attr('href', 'login.html')
+                                    
+                                }
+                            }).catch(errortip => {})
+                       
+                    }
+                
+                }
+    
+            },
+                  mounted: function mounted() {
+                    
+                  }
+        });
+        // jq
+        function getEmail(){
+            var email = localStorage.getItem('email');
+            $("#emailName").html(email);
+        }
+        window.onload = function() {
+            getEmail()
+            getHome()
+        }
+    </script>
+</body>
+
+</html>

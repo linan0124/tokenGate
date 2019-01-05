@@ -1,0 +1,668 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Mercurity</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.ico">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/add.css">
+     <style>
+          .addressTip{
+            height: 18px;
+            line-height: 1;
+            color: #ed4014;
+            font-size: 12px;
+            padding-top: 3px;
+            margin-bottom: 5px;
+        }
+        .amountTip{
+            height: 18px;
+            line-height: 1;
+            color: #ed4014;
+            font-size: 12px;
+            padding-top: 3px;
+        }
+        .addressAgainTip{
+            height: 18px;
+            line-height: 1;
+            color: #ed4014;
+            font-size: 12px;
+            padding-top: 3px;
+            margin-bottom: 0;
+        }
+        .loading{
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background:rgba(255, 255, 255, 0.5);
+            z-index: 1000;
+        }
+        .loadingImg{
+            width: 170px;
+            height: 60px;
+            margin-left: 42%;
+            margin-top: 250px;
+        }
+        /* purchaseBox */
+        .purchaseBox{
+            width: 100%;
+            height: 40px;
+            border:1px solid #E7E7E7;
+            border-radius: 3px;
+            line-height: 40px;
+            padding-left: 10px;
+            color: #000;
+            background: #e9ecef;
+        }
+        /* add */
+        .tokenType{
+            width:100%;
+            height:60px;
+            background:rgba(247,247,247,1);
+        }
+        .tokenPlate{
+            width: 24%;
+            height: 60px;
+            border-right: 1px solid #EDEDED;
+            font-size:14px;
+            font-family:PingFangSC-Semibold;
+            font-weight:600;
+            color:rgba(44,54,69,1);
+            line-height:60px;
+            padding-left: 20px;
+        }
+        .tokenDetail{
+            width: 76%;
+            height: 60px;
+            
+        }
+        .tokenLogo{
+            width: 40px;
+            height: 40px;
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+        .tokenName{
+            font-size:20px;
+            font-family:PingFangSC-Semibold;
+            font-weight:600;
+            color:#2C3645;
+            line-height:60px;
+            margin-left: 10px;
+        }
+        .tokenState{
+            font-size:14px;
+            font-family:PingFangSC-Regular;
+            font-weight:400;
+            color:#847577;
+            line-height:60px;
+            margin-right: 20px;
+        }
+        .inputWidth{
+            height: 40px;
+            width: 500px !important;
+        }
+        .setHeight{
+            height: 40px;
+        }
+        .inputGroup{
+            width: 180px;
+        }
+        .amountBox{
+            width: 560px;
+        }
+        .amountDetail{
+            width: 517px;
+        }
+        .feeIcon{
+            width: 15px;
+            height: 15px;
+            margin-left: 5px;
+            margin-top: 3px;
+        }
+        .feeTip{
+            width:320px;
+            height:33px;
+            background:rgba(0,0,0,0.8);
+            position: absolute;
+            top: -30px;
+            left: 120px;
+            z-index: 1000;
+            border-radius: 3px;
+        }
+     </style>
+
+</head>
+
+<body>
+
+    <div id="preloader" class="d-none">
+        <div class="loader d-none">
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__ball"></div>
+        </div>
+    </div>
+
+
+    <!-- header -->
+    <div class="header">
+            <div class="nav-header">
+                <div class="brand-logo">
+                    <a href="index.html">
+                        <!-- <i class="icofont icofont-dart"></i> -->   
+                        <span class="brand-title">Mercurity</span>
+                    </a>
+                </div>
+            </div>
+    
+            <div class="header-content">
+                <div class="header-left d-flex">
+                    <div class="nav-control">
+                        <div class="hamburger">
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                        </div>   
+                    </div>    
+                </div>
+            </div>
+            <div class="navbar-custom-menu pull-right d-flex nav-right">   
+                <div class="dropdown">
+                    <a class="dropdown-toggle user-profile-dropdown" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="user-img">
+                        </span>
+                        <span class="user-name" id="emailName"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#" id="logoutBtn">
+                            <i class="fa fa-power-off" aria-hidden="true"></i> Logout
+                        </a>
+                    </div>
+                </div>
+    
+            </div>
+    </div>
+    <!-- #/ header -->
+
+
+    <!-- sidebar -->
+    <div class="nk-sidebar">
+            <div class="nk-nav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li style="padding-top: 22px;">
+                        <a href="index.html" aria-expanded="true">
+                            <i class="fa fa-dashboard"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" aria-expanded="false" id="akyc">
+                            <i class="fa fa-user"></i>
+                            <span class="nav-text">KYC/AML</span>
+                        </a>
+                    </li>
+                    <li>
+                            <a class="has-arrow" href="#" aria-expanded="false">
+                                <i class="fa fa-folder-open"></i>
+                                <span class="nav-text">My Transaction</span>
+                            </a>
+                            <ul aria-expanded="false">
+                                    <li>
+                                        <a href="convertOrder.html">Purchase Order</a>
+                                    </li>
+                                    <li>
+                                        <a href="redeemOrder.html">Redeem Order</a>
+                                    </li>
+                            </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- #/ nk nav scroll -->
+    </div>
+    <!-- #/ sidebar -->
+
+    <div class="content-body" id="container">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="page-title">Convert Fiat to Token</h2>
+                    <p>You have not provided an ERC-20 address for the receipt of Tokens.When transaction is confirmed, the token will be sent to the ERC20 address you nominated above. All payments made to the ERC20 address provided above is irreversible. </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="forms-section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- <div class="accordion table-data"> -->
+                            <div class="card rounded-0">
+                                <!-- <div class="card-header">
+                                    <h4 class="mb-0" data-toggle="collapse" data-target="#basic-form" aria-expanded="true" aria-controls="basic-form">
+                                        Apply for coinage information
+                                        <i class="fa pull-right accordion__angle--animated" aria-hidden="true"></i>
+                                    </h4>
+                                    
+                                </div> -->
+                                <div id="basic-form" class="collapse show">
+                                    <div class="tokenType clearfix">
+                                        <div class="fl tokenPlate">{{tokenList.title}}</div>
+                                        <div class="fl tokenDetail">
+                                            <img v-if="tokenList.list" :src="tokenList.list.currency_img" alt="" class="fl tokenLogo">
+                                            <div v-if="tokenList.list" class="fl tokenName">{{tokenList.list.currency_name}}</div>
+                                            <div v-if="tokenList.list" class="fr tokenState">{{tokenList.list.currency_fullname}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="form-row">
+                                                <div class="col-lg-4 m-b-30 m-t-20">
+                                                        <h6 style="float:left; margin-right:80px;">Deposit Address</h6>
+                                                        <select class="custom-select" v-model="contractType">
+                                                            <option value="1">ERC20 Address</option>
+                                                            <option value="2">EOS Address</option>
+                                                        </select> 
+                                                        <!-- <div class="cccCustomRadioContainer" style="float:left;margin-right:60px;"><input style="margin-right:20px;" type="radio" id="Bitfinex_USD_checkbox" value="1" v-model="value"><label for="erc20"></label><span class="checkbox">ERC20 Address</span></label></div>
+                                                        <div class="cccCustomRadioContainer" style="float:left;margin-right:60px;"><input style="margin-right:20px;" type="radio" id="Bitfinex_USD_checkbox" value="2" v-model="value"><label for="eos"></label><span class="checkbox">EOS Address</span></label></div> -->
+                                                </div>
+                                                <!-- eos -->
+                                                <div class="col-lg-12" style="margin-bottom: 15px;" v-if="contractType=='2'">
+                                                    <h6 >EOS Address</h6>
+                                                    <input type="text" class="form-control inputWidth" placeholder="EOS Address" v-model="eosAddress" @blur="bindEosAddress" id="ethAddress" maxlength="70">
+                                                    <p class="addressTip"></p>
+                                                    <input type="text" class="form-control inputWidth" placeholder="Confirm EOS address" v-model="reEosAddress" @blur="confirmEosAddress" id="reethAddress">
+                                                    <p class="addressAgainTip"></p>
+                                                    <p>Please ensure that the wallet address provided above is accurate, and that you own or control all passwords, private keys and other forms of verification to use the wallet address. 
+                                                    <br>Mercurity is not liable for any direct or indirect damages, losses or claims resulting from any loss of the Tokens or inability to access the wallet address provided by you above.
+                                                    </p>
+                                                </div><br>
+                                                <!-- EOS  end-->
+                                                <!-- eth -->
+                                                <div class="col-lg-12" style="margin-bottom: 15px;" v-if="contractType=='1'">
+                                                    <h6>ERC20 Address</h6>
+                                                    <input type="text" class="form-control inputWidth" placeholder="ERC20 Address" v-model="ethAdress" @blur="bindEthAddress" id="ethAddress" maxlength="42">
+                                                    <p class="addressTip"></p>
+                                                    <input type="text" class="form-control inputWidth" placeholder="Confirm ERC20 address" v-model="reEthAddress" @blur="confirmEthAddress" id="reethAddress">
+                                                    <p class="addressAgainTip"></p>
+                                                    <p>Please ensure that the wallet address provided above is accurate, and that you own or control all passwords, private keys and other forms of verification to use the wallet address. 
+                                                    <br>Mercurity is not liable for any direct or indirect damages, losses or claims resulting from any loss of the Tokens or inability to access the wallet address provided by you above.
+                                                    </p>
+                                                </div><br>
+                                                <!-- eth end -->
+                                            </div>
+                                        </form>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- step2 -->
+                            <div class="card rounded-0 m-t-15">
+                                <div class="card-body  m-b-10 clearfix">
+                                        <!-- <div class="m-b-30">
+                                                <h6>Coin Type</h6>
+                                                <input type="text" class="form-control" placeholder="USDD" v-model="tokenName" disabled>
+                                                <select class="custom-select" v-model="tokenName">
+                                                    <option value="USDD">USDD</option>
+                                                </select>
+                                        </div> -->
+
+                                        <div class="m-t-20 amountBox">
+                                            <h6>Coinage Amount</h6>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text inputGroup">
+                                                        <i class="icofont icofont-visaq1">I want to purchase </i>
+                                                    </div>
+                                                </div>
+                                                <input type="text" class="form-control" id="" v-model="amount" placeholder="minimum 100 Tokens" @blur="bindAmount">
+                                                <div class="input-group-prepend" style="border-radius: 0 3px 3px 0;">
+                                                    <div class="input-group-text" style="border-radius: 0 3px 3px 0;width: 80px;">
+                                                        <i v-if="tokenList.list" class="icofont icofont-visaq1">{{tokenList.list.currency_name}}</i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p class="amountTip"></p>
+                                        </div>
+                                        <div class="m-b-30 amountDetail">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text inputGroup">
+                                                        <i class="icofont icofont-visaq1">Token Purchase Fee </i>
+                                                    </div>
+                                                </div>
+                                                <div class="form-control setHeight">{{getPurchaseFee}}</div> 
+                                                <div class="input-group-prepend" style="border-radius: 0 3px 3px 0;">
+                                                    <div class="input-group-text" style="border-radius: 0 3px 3px 0;">
+                                                        <i class="icofont icofont-visaq1">$</i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="purchaseBox" >${{getPurchaseFee}}</div>     -->
+                                        </div>
+                                        <div class="m-b-30 amountDetail">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text inputGroup">
+                                                        <i class="icofont icofont-visaq1">Transaction Fee </i><img src="./images/info.png" alt="" class="feeIcon">
+                                                        <!-- <div class="feeTip"></div> -->
+                                                    </div>
+                                                </div>
+                                                <div class="form-control setHeight">{{getTransactionFee}}</div> 
+                                                <div class="input-group-prepend" style="border-radius: 0 3px 3px 0;">
+                                                    <div class="input-group-text" style="border-radius: 0 3px 3px 0;">
+                                                        <i class="icofont icofont-visaq1">$</i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="m-b-40 amountDetail">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text inputGroup">
+                                                        <i class="icofont icofont-visaq1">Overall amount due </i>
+                                                    </div>
+                                                </div>
+                                                <div class="form-control setHeight">{{getOverall}}</div> 
+                                                <div class="input-group-prepend" style="border-radius: 0 3px 3px 0;">
+                                                    <div class="input-group-text" style="border-radius: 0 3px 3px 0;">
+                                                        <i class="icofont icofont-visaq1">$</i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="m-b-30">
+                                            <h6>Transaction Fee </h6>
+                                            <div class="purchaseBox" >${{getTransactionFee}}</div>
+                                            <span style="color:#847577;font-size: 12px;">(*Transaction fee = the larger of 10 basis points or $20)</span>
+                                        </div>
+                                        <div class="m-b-30">
+                                            <h6>Overall amount due</h6>
+                                            <div class="purchaseBox" >${{getOverall}}</div>
+                                        </div> -->
+                                        <div class="button-catagory flat-circular-buttons m-b-30">
+                                            <button type="button" class="btn button btn-success btn-radius" @click="convertSubmit" v-if="value=='1'">SUBMIT APPLICATION</button>
+                                            <button type="button" class="btn button btn-success btn-radius" @click="convertSubmitEos" v-if="value=='2'">SUBMIT APPLICATION</button>
+                                        </div>
+                                        
+                                </div>
+                            </div>
+                            
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="copyright">&copy; Copyright 2018 by Tortoiz. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="loading" id="fakeLoader">
+        <img src="images/loading.gif" alt="" class="loadingImg">
+    </div>
+
+
+
+
+
+    <!-- Modernizr-3 -->
+    <!-- jQuery -->
+    <script src="../assets/plugins/common/common.min.js"></script>
+
+
+    <!-- custom scripts -->
+    <script src="js/scripts.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="js/axios.min.js"></script>
+   
+    <script src="js/jquery.js"></script>
+    <script src="js/login.js"></script>
+
+    <script>
+            var vue = new Vue({
+                  el:'#container',
+                  data: function data() {
+                    return {
+                        value:'1',
+                        ethAdress: '',
+                        reEthAddress:'',
+                        tokenName: 'USDD',
+                        amount: '',
+                        restaurants: [],
+                        eosAddress:'',
+                        reEosAddress:'',
+                        contractType:'1',
+                        tokenList: ''
+
+                    }
+                  },
+            components: {},
+            methods: {
+            //    ETH
+                bindEthAddress () {
+                    var reg = /^0x[A-Za-z0-9]{40}$/
+                    if(this.ethAdress==''){
+                        $('.addressTip').html('This field is required!')
+                    }else if (!reg.test(this.ethAdress) && this.ethAdress) {
+                        $('.addressTip').html('Please fill in the correct ERC20 address.')                      
+                    } else {
+                        $('.addressTip').html('')
+                    }
+                },
+                confirmEthAddress () {
+                    var regn = /^0x[A-Za-z0-9]{40}$/
+                    if(this.reEthAddress==''){
+                            $('.addressAgainTip').html('This field is required!')
+                        }else if (!regn.test(this.reEthAddress) && this.reEthAddress) {
+                            $('.addressAgainTip').html('Please fill in the correct ERC20 address.')
+                        } else if (this.reEthAddress !== this.ethAdress) {
+                            $('.addressAgainTip').html('The two ERC20 addresses are different.Please retry')
+                        } else {
+                            $('.addressAgainTip').html('')
+                        }
+                },
+                //eos
+                bindEosAddress () {
+                    // var reg = /^0x[A-Za-z0-9]{40}$/
+                    if(this.eosAddress==''){
+                        $('.addressTip').html('This field is required!')
+                    } else {
+                        $('.addressTip').html('')
+                    }
+                },
+                confirmEosAddress () {
+                    // var regn = /^0x[A-Za-z0-9]{40}$/
+                    if(this.reEosAddress==''){
+                            $('.addressAgainTip').html('This field is required!')
+                        }else if (this.reEosAddress !== this.eosAddress) {
+                            $('.addressAgainTip').html('The two ERC20 addresses are different.Please retry')
+                        } else {
+                            $('.addressAgainTip').html('')
+                        }
+                },
+                //eos end
+                bindAmount () {
+                    var reg = /^[0-9]*$/
+                    if(this.amount==''){
+                        $('.amountTip').html('This field is required!')
+                    }else if (!reg.test(this.amount) && this.amount) {
+                        $('.amountTip').html('Format error. Please enter a number greater than 100')
+                    } else if(this.amount<100){
+                        $('.amountTip').html('The number of COINS should be more than 100')
+                    }else{
+                        $('.amountTip').html('')
+                    }
+                },
+                convertSubmit () {
+                        
+                        if(this.ethAdress&&this.tokenName&&this.amount){
+                            $('#fakeLoader').show()
+                            axios({
+                                method: 'post',//192.11.9.56:8080
+                                url: 'http://39.106.60.55:8081/user/sendPurchaseOrder',
+                                headers:{
+                                    token:localStorage.getItem('loginToken')
+                                },
+                                params: {
+                                    addressType:this.contractType,
+                                    walletAddress: this.ethAdress,
+                                    tokenName: this.tokenList.list.currency_name,
+                                    orderAmount: this.amount
+                                }
+                            }).then(response => {
+                                var data = response.data
+                                if (data.code === '200') {
+                                    $('#fakeLoader').hide()
+                                    $(location).attr('href', "converFiatCheck.html?memoData="+data.data.reference_number+"&primetrust_order_id="+data.data.primetrust_order_id+"&getOverall="+this.getOverall+"&ethAddress="+this.ethAdress)
+                                    
+                                } else if (data.code === '500') {
+                                    $('#fakeLoader').hide()
+                                    alert(data.message)
+                                    if(data.data.status==='499'){
+                                    localStorage.clear()
+                                    $(location).attr('href', 'login.html')
+                                    }
+                                }else if(data.code==='499'){
+                                    localStorage.clear()
+                                    $(location).attr('href', 'login.html')
+                                }
+                            }).catch(errortip => {})
+                        }else{
+                            alert('error:Incomplete information,please confirm the above requirements to proceed.')
+                        }
+                                                    
+            },
+            //eos submit
+            convertSubmitEos () {
+                        
+                        if(this.eosAddress&&this.tokenName&&this.amount){
+                            $('#fakeLoader').show()
+                            axios({
+                                method: 'post',
+                                url: 'http://39.106.60.55:8081/user/sendPurchaseOrder',
+                                headers:{
+                                    token:localStorage.getItem('loginToken')
+                                },
+                                params: {
+                                    addressType:this.contractType,
+                                    eos_address: this.eosAddress,
+                                    tokenName: this.tokenList.list.currency_name,
+                                    orderAmount: this.amount
+                                }
+                            }).then(response => {
+                                var data = response.data
+                                if (data.code === '200') {
+                                    $('#fakeLoader').hide()
+                                    $(location).attr('href', "converFiatCheck.html?memoData="+data.data.reference_number+"&primetrust_order_id="+data.data.primetrust_order_id+"&getOverall="+this.getOverall+"&ethAddress="+this.ethAdress)
+                                    
+                                } else if (data.code === '500') {
+                                    $('#fakeLoader').hide()
+                                    alert(data.message)
+                                    if(data.data.status==='499'){
+                                    localStorage.clear()
+                                    $(location).attr('href', 'login.html')
+                                    }
+                                }else if(data.code==='499'){
+                                    localStorage.clear()
+                                    $(location).attr('href', 'login.html')
+                                }
+                            }).catch(errortip => {})
+                        }else{
+                            alert('error:Incomplete information,please confirm the above requirements to proceed.')
+                        }
+                                                    
+            },
+               
+                loadAll () {
+                    let hasEthAddress =localStorage.getItem('ethAddress')
+                    // let _this=this
+                    console.log(hasEthAddress)
+                    if(!hasEthAddress||hasEthAddress=='null'||hasEthAddress==''||hasEthAddress=='undefined'){
+                        this.ethAdress=''
+                    }else{
+                        this.ethAdress=hasEthAddress
+                    }
+                       
+                },
+                loadAllEos () {
+                    let hasEosAddress =localStorage.getItem('eosAddress')
+                    // let _this=this
+                    console.log(hasEosAddress)
+                    if(!hasEosAddress||hasEosAddress=='null'||hasEosAddress==''||hasEosAddress=='undefined'){
+                        this.eosAddress=''
+                    }else{
+                        this.eosAddress=hasEosAddress
+                    }
+                       
+                }
+            },
+            computed:{
+                //Token Purchase Fee
+                getPurchaseFee:function(){
+                       
+                    return   this.amount
+                },
+                // Transaction Fee
+                getTransactionFee:function(){
+                    if(this. getPurchaseFee!==''){
+                        let transaction=this.amount*0.001
+                        if(transaction>20){
+                            return transaction
+                        }else{
+                            return 20
+                        }
+                    }    
+                },
+                //Overall amount due
+                getOverall:function(){
+                    if(this.getPurchaseFee&&this.getTransactionFee){
+                        let sum
+                       return sum=parseInt(this.getPurchaseFee) + parseInt(this.getTransactionFee)
+                    }  
+                }
+            },
+        mounted: function mounted() {
+                    var tokenInfo = localStorage.getItem('tokenInfo')
+                    this.tokenList = JSON.parse(tokenInfo)
+                    // console.log(this.tokenList.list.company_name)
+                    this.loadAll()
+                    this.loadAllEos()
+                }
+        });
+        // jq header Email
+        function getEmail(){
+            var email = localStorage.getItem('email');
+            $("#emailName").html(email);
+        }
+        window.onload = function() {
+            getEmail()
+            getHome()
+        }
+    </script>
+
+
+</body>
+
+</html>

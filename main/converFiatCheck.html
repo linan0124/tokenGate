@@ -1,0 +1,327 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Mercurity</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.ico">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+   <style>
+       #memoDataTip{
+           color: #000;
+       }
+       .getLitip{
+            display: block;
+            float: left;
+            width: 200px;
+       }
+       .getLispan{
+            display: block;
+            float: left;
+       }
+       .fl{
+           float: left;
+       }
+       .clearfix:after {
+            clear: both;
+            display: block;
+            content: "";
+            visibility: hidden;
+            height: 0
+        }
+        .clearfix {
+            zoom: 1
+        }
+        .stepone{
+            width: 30px;
+            height: 30px;
+            background: #E9ECEF;
+            border-radius: 30px;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 20px;
+        }
+        .steponeTip{
+            line-height: 30px;
+            width: 900px;
+        }
+        .warningImg{
+            display: block;
+            width: 19px;
+            height: 16px;
+            margin-top: 3px;
+            margin-right: 11px;
+        }
+        .warningTip{
+            width: 940px;
+            line-height: 24px;
+            margin-bottom: 40px;
+        }
+        .warningBox{
+            margin-top: 30px;
+           
+        }
+
+   </style>
+
+</head>
+
+<body>
+
+    <div id="preloader" class="d-none">
+        <div class="loader d-none">
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__ball"></div>
+        </div>
+    </div>
+
+
+    <!-- header -->
+    <div class="header">
+        <div class="nav-header">
+            <div class="brand-logo">
+                <a href="index.html">
+                    <!-- <i class="icofont icofont-dart"></i> -->   
+                    <span class="brand-title">Mercurity</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="header-content">
+            <div class="header-left d-flex">
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
+                    </div>   
+                </div>    
+            </div>
+        </div>
+        <div class="navbar-custom-menu pull-right d-flex nav-right">   
+            <div class="dropdown">
+                <a class="dropdown-toggle user-profile-dropdown" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="user-img">
+                    </span>
+                    <span class="user-name" id="emailName"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#" id="logoutBtn">
+                        <i class="fa fa-power-off" aria-hidden="true"></i> Logout
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- #/ header -->
+
+
+    <!-- sidebar -->
+    <div class="nk-sidebar">
+        <div class="nk-nav-scroll">
+            <ul class="metismenu" id="menu">
+                <li style="padding-top: 22px;">
+                    <a href="index.html" aria-expanded="true">
+                        <i class="fa fa-dashboard"></i>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;" aria-expanded="false" id="akyc">
+                        <i class="fa fa-user"></i>
+                        <span class="nav-text">KYC/AML</span>
+                    </a>
+                </li>
+                <li>
+                        <a class="has-arrow" href="#" aria-expanded="false">
+                            <i class="fa fa-folder-open"></i>
+                            <span class="nav-text">My Transaction</span>
+                        </a>
+                        <ul aria-expanded="false">
+                                <li>
+                                    <a href="convertOrder.html">Purchase Order</a>
+                                </li>
+                                <li>
+                                    <a href="redeemOrder.html">Redeem Order</a>
+                                </li>
+                        </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- #/ nk nav scroll -->
+    </div>
+    <!-- #/ sidebar -->
+
+    <div class="content-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h5 style="line-height: 24px"> Your application has been submitted successfully,  system is awaiting for your payment, please follow the instruction below. Note that this application will be canceled in 72 hours, please send your payment within 72 hours. </h5>
+                    <p>Currently, the platform only supports  offline <B>wire transfer</B>，Wire instructions are set forth below:</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="accordion faq-data m-b-10">
+                              <div class="card rounded-0 m-b-20">
+                                    <div class="card-body  m-b-10 clearfix">
+                                        <div class="stepone fl">1</div>
+                                        <div class="steponeTip fl">Contact your bank and initiate a wire transfer of <b style="color:#1E9379">$<span id="getOverallTip"></span></b>  from your account to "Prime Trust, LLC". </div>
+                                    </div>
+                              </div>
+                              <div class="card rounded-0 m-b-20">
+                                    <div class="card-body  m-b-10 clearfix">
+                                        <div class="stepone fl">2</div>
+                                        <div class="steponeTip fl">You must wire the funds out in 72 hours. Minting process will be initiated after fund received, and the minting process usually takes about 3-5 business days and tokens will be sent to your ERC20 address <b style="color:#1E9379">(<span id="ethAddress"></span>)</b>. If you could not wire out the funds in 72 hours, this order will be voided.</div>
+                                    </div>
+                              </div>
+                              <div class="card rounded-0">
+                                    <div class="card-body  m-b-10 clearfix">
+                                        <div class="stepone fl">3</div>
+                                        <div class="steponeTip fl">
+                                            <div class="m-b-20">You MUST write <B id="memoTip" style="color:#1E9379"></B> and <b style="color:#1E9379">FFC:Bitdollar, LLC FBO Escrow / Acct 420021664744</b> in the "memo" or "instructions" field of the wire transfer in order for funds to reach trust account.</div>
+                                            <ul>
+                                                    <li style="margin-bottom: 10px" class="clearfix"><span></span>
+                                                        <span class="getLitip">Beneficiary Name:</span>
+                                                        <span class="getLispan"> <b>Prime Trust, LLC</b></span>
+                                                    </li>
+                                                    <li style="margin-bottom: 10px" class="clearfix">
+                                                        <span class="getLitip">Bank Name:</span>
+                                                        <span class="getLispan"> <b>US Bank</b></span>
+                                                    </li>
+                                                    <li style="margin-bottom: 10px" class="clearfix">
+                                                        
+                                                        <span class="getLitip">Bank Address:</span>
+                                                        <span class="getLispan"> <b>St. Louis, MO</b></span>
+                                                    </li>
+                                                    <li style="margin-bottom: 10px" class="clearfix">
+                                                        
+                                                        <span class="getLitip">Bank Phone:</span>
+                                                        <span class="getLispan"> <b>+1 888-799-4737</b></span>
+                                                    </li>
+                                                    <li style="margin-bottom: 10px" class="clearfix">
+                                                       
+                                                        <span class="getLitip">Memo/Reference:</span>
+                                                        <span style="color:#1E9379" class="getLispan"> <b id="memoDataTip"  style="color:#1E9379"></b></span>
+                                                    </li>
+                                                    <li style="margin-bottom: 10px" class="clearfix">
+                                                       
+                                                        <span class="getLitip">Beneficiary Address:</span>
+                                                        <span class="getLispan"> <b>2300 W Sahara Ave Suite 1170, Las Vegas, NV</b></span>
+                                                    </li>
+                                                    <li style="margin-bottom: 10px" class="clearfix">
+                                                        
+                                                        <span class="getLitip">Routing Number:</span>
+                                                        <span class="getLispan"> <b>123000848</b></span>
+                                                    </li>
+                                                    <li style="margin-bottom: 10px" class="clearfix">
+                                                        
+                                                        <span class="getLitip">Account Number:</span>
+                                                        <span class="getLispan"> <b>153911747969</b></span>
+                                                    </li>
+                                                    <li style="margin-bottom: 10px" class="clearfix">
+                                                        
+                                                        <span class="getLitip">Swift Code:</span>
+                                                        <span class="getLispan"> <b>USBKUS44IMT</b></span>
+                                                    </li>
+                                                    <li style="margin-bottom: 10px" class="clearfix">
+                                                       
+                                                        <span class="getLitip">Reference:</span>
+                                                        <span class="getLispan"> <b style="color:#1E9379">FFC: Bitdollar, LLC FBO Escrow / Acct 420021664744</b></span>
+                                                    </li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+                              </div>
+                             
+                            <div class="warningBox clearfix">
+                                <img src="images/warningImg.png" alt="" class="warningImg fl">
+                                <div class="warningTip fl">Please remember to write <b id="memoDataTip1" style="color:#1E9379"></b> and <b style="color:#1E9379">FFC: Bitdollar, LLC FBO Escrow / Acct 420021664744</b> in the "memo" or "instructions" field of the wire transfer in order for funds to reach trust account. Mercurity is not responsible for any loss caused by your mistake. </div>
+                                <button type="button" class="btn button btn-success btn-radius" onclick="toClose()">I Know</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="copyright">&copy; Copyright 2018 by Tortoiz. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Modernizr-3 -->
+    <!-- jQuery -->
+    <script src="../assets/plugins/common/common.min.js"></script>
+
+
+    <!-- custom scripts -->
+    <script src="js/scripts.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/login.js"></script>
+    <script>
+            // jq header Email
+        function getEmail(){
+            var email = localStorage.getItem('email');
+            $("#emailName").html(email);
+        }
+        function toClose(){
+            $(location).attr('href', "convertClose.html")
+        }
+        $.getUrlParam = function (name) {
+ 
+            let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+
+            let r = window.location.search.substr(1).match(reg);  //匹配目标参数
+
+            if (r != null) return unescape(r[2]); return null; //返回参数值
+        };
+            // let memoData = $.getUrlParam('memoData');
+            // console.log(memoData)
+
+        window.onload = function() {
+            getEmail()
+            getHome()
+            let memoData = $.getUrlParam('memoData');
+            let getOverall = $.getUrlParam('getOverall');
+            let ethAddress = $.getUrlParam('ethAddress');
+            $("#memoDataTip").html(memoData);
+            $("#memoTip").html(memoData);
+            $("#memoDataTip1").html(memoData);
+            $("#getOverallTip").html(getOverall)
+            $("#ethAddress").html(ethAddress)
+        }
+    </script>
+    
+
+</body>
+
+</html>

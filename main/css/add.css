@@ -1,0 +1,34 @@
+.kycTip{
+    line-height: 50px;
+}
+h1{
+
+}
+.success{
+    width: 150px;
+    height: 150px;
+    background: url(../images/success.png) no-repeat;
+    background-size: cover;
+}
+.error-section{
+    margin-top: 100px;
+}
+.kycTip{
+    line-height: 30px;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.clearfix:after {
+     clear: both;
+     display: block;
+     content: "";
+     visibility: hidden;
+     height: 0
+ }
+ .clearfix {
+     zoom: 1
+ }

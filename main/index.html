@@ -1,0 +1,586 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Mercurity</title>
+    <meta name="description" content="Mercurity">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.ico">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    
+    <!-- Place favicon.ico in the root directory -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-126569142-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-126569142-3');
+</script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+     <style>
+         #contentBox{
+             display: none;
+         }
+         /* .verifyTitle{
+             text-align: center;
+         } */
+         .verifyBlock{
+             display: none;
+             position: fixed;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             background:rgba(255, 255, 255, 0.5);
+            z-index: 1000;
+         }
+         .verifyRow{
+             margin-left: 235px;
+             margin-top: 60px;
+         }
+         .verifyBox{
+             height: 410px;
+             background: #fff;
+             padding-top: 60px;
+         }
+         .tCenter{
+             text-align: center;
+         }
+         .successImg{
+            display: block;
+            width: 100px;
+            height: 100px;
+            background: url(./images/information.png) no-repeat;
+            background-size: cover;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+        .emailColor{
+            color:#1E9379
+        }
+        .btnAuto{
+            display: block;
+            min-width: 170px;
+            margin: 0 auto;
+            margin-top: 40px;
+        }
+        .btnWidth{
+            width: 350px;
+        }
+         /* loading */
+     .loading{
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background:rgba(255, 255, 255, 0.5);
+            z-index: 1000;
+        }
+        .loadingImg{
+            width: 170px;
+            height: 60px;
+            margin-left: 44%;
+            margin-top: 250px;
+        }
+        .tokenLine{
+            height: 80px;
+        }
+        .tokenLine td{
+            padding: 0;
+            padding-left: 1.2rem;
+        }
+        .tokenLogo{
+            width: 40px;
+            height: 40px;
+            margin-top: 20px;
+        }
+        .tokenBox{
+            margin-left: 20px;
+            margin-top: 14px;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .clearfix:after {
+            clear: both;
+            display: block;
+            content: "";
+            visibility: hidden;
+            height: 0
+        }
+        .clearfix {
+            zoom: 1
+        }
+        .tokenTitle{
+            color:#2C3645 !important;
+            font-size: 20px;
+            line-height: 28px;
+        }
+        .tokenPlate{
+            color: #847577;
+            font-size: 14px;
+            line-height: 20px;
+        }
+        .purchaseBtn{
+            width: 100px;
+            height: 40px;
+            margin-top: 20px;
+            margin-right: 20px;
+        }
+        .redeemBtn{
+            margin-top: 20px;
+            height: 40px;
+            margin-top: 20px;
+            margin-right: 20px;
+        }
+         
+     </style>
+
+</head>
+
+<body>
+    
+            <div id="preloader" class="d-none">
+                    <div class="loader d-none">
+                        <div class="loader__bar"></div>
+                        <div class="loader__bar"></div>
+                        <div class="loader__bar"></div>
+                        <div class="loader__bar"></div>
+                        <div class="loader__bar"></div>
+                        <div class="loader__ball"></div>
+                    </div>
+            </div>
+            
+            
+                <!-- header -->
+            <div class="header">
+                    <div class="nav-header">
+                        <div class="brand-logo">
+                            <a href="index.html">
+                                <!-- <i class="icofont icofont-dart"></i> -->           
+                                <span class="brand-title">Mercurity</span>
+                            </a>
+                        </div>
+                    </div>
+            
+                    <div class="header-content">
+                        <div class="header-left d-flex">
+                            <div class="nav-control">
+                                <div class="hamburger">
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                </div>
+            
+                            </div>
+            
+                        </div>
+                    </div>
+            
+            
+                    <div class="navbar-custom-menu pull-right d-flex nav-right">
+                        <div class="dropdown">
+                            <a class="dropdown-toggle user-profile-dropdown" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="user-img">
+                                </span>
+                                <span class="user-name" id="emailName"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                               
+                                <a class="dropdown-item" href="#" id="logoutBtn">
+                                    <i class="fa fa-power-off" aria-hidden="true"></i> Logout
+                                </a>
+                            </div>
+                        </div>
+            
+                    </div>
+            </div>
+                <!-- #/ header -->
+            
+            
+                 <!-- sidebar -->
+                <div class="nk-sidebar">
+                    <div class="nk-nav-scroll">
+                        <ul class="metismenu" id="menu">
+                            <li style="padding-top: 22px;">
+                                <a href="index.html" aria-expanded="true">
+                                    <i class="fa fa-dashboard"></i>
+                                    <span class="nav-text">Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" aria-expanded="false" id="akyc">
+                                    <i class="fa fa-user"></i>
+                                    <span class="nav-text">KYC/AML</span>
+                                </a>
+                            </li>
+                            <li>
+                                    <a class="has-arrow" href="#" aria-expanded="false">
+                                        <i class="fa fa-folder-open"></i>
+                                        <span class="nav-text">My Transaction</span>
+                                    </a>
+                                    <ul aria-expanded="false">
+                                        <li>
+                                            <a href="convertOrder.html">Purchase Order</a>
+                                        </li>
+                                        <li>
+                                            <a href="redeemOrder.html">Redeem Order</a>
+                                        </li>
+                                    </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- #/ nk nav scroll -->
+                </div>
+                <!-- #/ sidebar -->
+              <!-- content body -->
+                <div class="content-body" id="container">
+                    <!-- content  -->
+                    <!-- loading page -->
+                    <div class="loading" id="fakeLoader">
+                        <img src="images/loading.gif" alt="" class="loadingImg">
+                    </div>
+                    <!--  loading page end-->
+                    <div class="container-fluid" id="contentBox">
+                        <!-- <div class="row m-t-25 justify-content-between">
+                            <div class="col-lg-6">
+                                <h2 class="page-title">Home</h2>
+                            </div>
+                        </div> -->
+                        <div class="row m-t-25">
+                            <div class="col-lg-4">
+                                <div class="card currency-card-rounded">
+                                    <div class="card-body rounded bitcoin">
+                                        <div class="currency-card--icon pull-right">
+                                            <i class="cc" title="BTC"></i>
+                                        </div>
+                                        <h4>Order Count</h4>
+                                        <h2>
+                                            <span>{{homeData.countOrder}}</span>
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="card currency-card-rounded">
+                                    <div class="card-body rounded ethereum">
+                                        <div class="currency-card--icon pull-right">
+                                            <i class="cc " title="ETH"></i>
+                                        </div>
+                                        <h4>Total Amount (in USD)</h4>
+                                        <h2>
+                                            <span>{{homeData.account}}</span>
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-lg-3">
+                                <div class="card currency-card-rounded">
+                                    <div class="card-body rounded litecoin">
+                                        <div class="currency-card--icon pull-right">
+                                            <i class="cc" title="XRP"></i>
+                                        </div>
+                                        <h4>Total DCP</h4>
+                                        <h2>
+                                            <span>{{homeData.dcpAmount}}</span>
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="col-lg-4">
+                                <div class="card currency-card-rounded">
+                                    <div class="card-body rounded ripple">
+                                        <div class="currency-card--icon pull-right">
+                                            <i class="cc" title="LTC"></i>
+                                        </div>
+                                        <h4>KYC/AML</h4>
+                                        <h2>
+                                            <span v-if="homeData.kycStatus=='N'">Unverified</span>
+                                            <span v-if="homeData.kycStatus=='W'">Verification in progress</span>
+                                            <span v-if="homeData.kycStatus=='Y'">Verified</span>
+                                            <span v-if="homeData.kycStatus=='F'">Verification failed</span>
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="row m-t-25">
+                            <div class="col-lg-12">
+                                <div class="button-catagory radius-square-buttons m-b-20">
+                                    <h4>Get Your First Coin Here！</h4>
+                                    <!-- <button type="button" class="btn button btn-hover btn-radius" @click="toKycBtn">Purchase</button>
+                                    <button type="button" class="btn button btn-success btn-radius" @click="toKycRedeem">Redeem</button> -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <!-- tokenList -->
+                    <div class="col-lg-12" id="tokenList" v-for="(item,index) in tokenList" :key="index">
+                        <div class="accordion table-data">
+                            <div class="card rounded-0">
+                                <div class="card-header">
+                                    <h4 class="mb-0" data-toggle="collapse" data-target="#table-two" aria-expanded="true" aria-controls="table-two">
+                                        {{item.title}}
+                                        <i class="fa pull-right accordion__angle--animated" aria-hidden="true"></i>
+                                    </h4>
+                                </div>
+                                <div id="table-two" class="collapse show table-responsive">
+                                    <table class="table m-b-0">
+                                        <tbody>
+                                            <tr class="tokenLine" v-for="(items,ind) in item.list" :key="ind">
+                                                <td class="clearfix">
+                                                    <img :src="items.currency_img" alt="" class="tokenLogo fl">
+                                                    <div class="tokenBox fl">
+                                                        <div class="tokenTitle">{{items.currency_name}}</div>
+                                                        <div class="tokenPlate">{{items.currency_fullname}}</div>
+                                                    </div>
+                                                </td>
+                                                <td class="clearfix">
+                                                    
+                                                    <button type="button" class="btn button btn-outline-hover btn-radius btn-outline redeemBtn fr" @click="toKycRedeem">Redeem</button> 
+                                                    <button type="button" class="btn button btn-hover btn-radius purchaseBtn fr" @click="toKycBtn(item, ind)">Purchase</button>
+                                                </td>
+                                               
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- tokenList  end-->
+                    <!-- #/content -->
+                    <!-- verify Email -->
+                    <div class="container-fluid verifyBlock" id="verifyBlock">
+                        <div class="row verifyRow">
+                            <div class="col-lg-12">
+                                <!-- <h2 class="verifyTitle">Verify your Email</h2> -->
+                                <div class="col-lg-12 verifyBox">
+                                        <h1>
+                                                <span class="exc-icon">
+                                                    <i class="successImg"></i>
+                                                    <!-- <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> -->
+                                                </span>
+                                        </h1>
+                                    <h3 class="tCenter">We sent a verification email to <span class="emailColor">{{emailAddress}}</span></h3>
+                                    <h3 class="tCenter">Click the link inside to get started!</h3>
+                                   
+                                    <button type="button" class="btn button btn-success btn-radius btnAuto" @click="getCode()" id="emailLink">Email didn’t arrive?</button>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+                    <!-- #/verify Email  -->
+                    <div class="container-fluid copyright-section" v-if="homeData.status==='Y'">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <p class="copyright">&copy; Copyright 2018 by Mercurity. All Rights Reserved.</p>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            <!-- #/content body -->
+                
+
+    <!-- Modernizr-3 -->
+    <!-- jQuery -->
+    <script src="../assets/plugins/common/common.min.js"></script>
+    <!-- custom scripts -->
+    <script src="js/scripts.js"></script>
+    <!-- new -->
+    <script src="../assets/plugins/chartjs/Chart.bundle.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/login.js"></script>
+   
+<script>
+    var vue = new Vue({
+          el:'#container',
+          data: function data() {
+            return {
+                homeData: [],
+                emailAddress:localStorage.getItem('email'),
+                tokenList:[]
+            };
+          },
+        //   created: function () {
+        //         // `this` 指向 vm 实例
+        //               $('#fakeLoader').show()
+        //     },
+          components: {},
+          methods: {
+           
+            sendEmailLink(){
+               $('#emailLink').html('We resent the email. Please check your inbox')
+               $('#emailLink').addClass('btnWidth')
+               setTimeout(function (){
+                    $('#emailLink').html('Email didn’t arrive?')
+                    $('#emailLink').removeClass('btnWidth')
+                },3000); 
+            },
+             //  send emaillink start
+             getCode () {  
+
+                this.sendEmailLink()         
+                    axios({
+                        method: 'post',
+                        url: 'http://39.106.60.55:8081/user/sendCode',
+                        params: {
+                            email: localStorage.getItem('email')
+                        }
+                    }).then(response => {
+                    console.log(response.data)
+                    var data = response.data
+                    if (data.code === '200') {
+                       
+    
+                    } else if (data.code === '500') {
+                      alert(data.message)
+                      if(data.data.status==='499'){
+                        localStorage.clear()
+                        $(location).attr('href', 'login.html')
+                      }
+                    }else if(data.code==='499'){
+                        localStorage.clear()
+                        $(location).attr('href', 'login.html')
+                    }
+                  }).catch(errortip => {})
+             },
+            //  send emaillink end
+            homeList () {                   
+                    let loginToken =localStorage.getItem('loginToken')
+                    if(loginToken==''||loginToken==null){
+                        localStorage.clear()
+                        $(location).attr('href', 'login.html')
+                    }
+                   
+                    axios({
+                        method: 'post',
+                        url: 'http://39.106.60.55:8081/user/selectViewHome',//192.11.9.56 192.11.9.56:8080
+                        headers:{
+                            token:localStorage.getItem('loginToken')
+                        }
+                    }).then(response => {
+                    var data = response.data
+                   
+                    // alert(12)
+                    if (data.code === '200') {
+                        $('#fakeLoader').hide()
+                        this.homeData = data.data
+                        this.tokenList = data.data.currencyList
+                        if(data.data.status=='Y'){
+                            $('#contentBox').show()
+                            $('#tokenList').show()
+                        }else{
+                            $('#verifyBlock').show()
+                        }
+                        if (data.data.address.eth_addresss !== '') {
+                            localStorage.setItem('ethAddress', data.data.address.eth_addresss)
+                        }
+                        if (data.data.address.eos_address !== '') {
+                            localStorage.setItem('eosAddress', data.data.address.eos_address)
+                        }
+                       
+                    } else if (data.code === '500') {
+                        $('#fakeLoader').hide()
+                      alert(data.message)
+                      if(data.data.status==='499'){
+                        localStorage.clear()
+                        $(location).attr('href', 'login.html')
+                      }
+                    }else if(data.code==='499'){
+                        localStorage.clear()
+                        $(location).attr('href', 'login.html')
+                    }
+                  }).catch(function (error) {
+                      console.log(error.response)
+                    if (error.response) {
+                    // The request was made and the server responded with a status code
+                    // that falls out of the range of 2xx
+                    // console.log(error.response.data);
+                    // console.log(error.response.status);
+                    // console.log(error.response.headers);
+                    } else if (error.request) {
+                    // The request was made but no response was received
+                    // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+                    // http.ClientRequest in node.js
+                    // console.log(error.request);
+                    } else {
+                    // Something happened in setting up the request that triggered an Error
+                    // console.log('Error', error.message);
+                    }
+                    // console.log(error.config);
+                });
+            },
+                toKycBtn(item, index){
+                    var tokenInfo = {}
+                   if(this.homeData.kycStatus==='N'){
+                     $(location).attr('href', 'kycAmlChecking.html')
+                   }else if(this.homeData.kycStatus==='W'){
+                     $(location).attr('href', 'kycAmlWaiting.html')
+                   }else if(this.homeData.kycStatus==='Y'){
+                     $(location).attr('href', 'convertFiat.html')
+                     tokenInfo.list = item.list[index]
+                     tokenInfo.title = item.title
+                    var infos = JSON.stringify(tokenInfo)
+                     localStorage.setItem('tokenInfo', infos)
+                     
+                   }
+                },
+                toKycRedeem(){
+                    if(this.homeData.kycStatus==='N'){
+                     $(location).attr('href', 'kycAmlChecking.html')
+                   }else if(this.homeData.kycStatus==='W'){
+                     $(location).attr('href', 'kycAmlWaiting.html')
+                   }else if(this.homeData.kycStatus==='Y' && this.homeData.payment_method_id!==''&& this.homeData.payment_method_id!=='N'){
+                     $(location).attr('href', 'redeemToken.html')
+                   }else if(this.homeData.kycStatus==='Y'&& this.homeData.payment_method_id=='N'|| this.homeData.payment_method_id==''){
+                    $(location).attr('href', 'redeemTokenAddress.html')
+                   }
+                }
+          },
+          mounted: function mounted() {
+            this.homeList()
+            
+           
+          }
+        });
+
+//  jq header Email
+function getEmail(){
+    var email = localStorage.getItem('email');
+    $("#emailName").html(email);
+}
+
+
+
+window.onload = function() {
+    getEmail()
+    getHome()
+}
+</script>
+
+</body>
+
+</html>

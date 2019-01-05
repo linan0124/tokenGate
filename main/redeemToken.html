@@ -1,0 +1,532 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Mercurity</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.ico">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .qrcode{
+            width: 200px;
+            height: 200px;
+            background: #fff;
+            /* margin-left: 200px; */
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+        .hashTip{
+                height: 18px;
+                line-height: 1;
+                color: #ed4014;
+                font-size: 12px;
+                padding-top: 3px;
+                margin-bottom: 0;
+           }
+           /* #copyNote{
+               color: #007bff;
+               cursor: pointer;
+           } */
+           .payList{
+               /* width: 100%; */
+               background: #fff;
+               padding-bottom: 40px;
+           }
+           .fl{
+               float: left;
+           }
+           .mb20{
+               margin-bottom: 20px;
+           }
+           .clearfix:after {
+                clear: both;
+                display: block;
+                content: "";
+                visibility: hidden;
+                height: 0
+            }
+            .clearfix {
+                zoom: 1
+            }
+            .fl{
+                float: left;
+            }
+            .col-lg-6{
+                padding-top: 20px;
+            }
+            .stepTitle{
+                font-size: 20px;
+                padding-top: 20px;
+                color: #2c3645;
+            }
+            .copyAddressBox{
+                width: 40%;
+                height: 40px;
+                border:1px solid #E7E7E7;
+                line-height: 40px;
+                padding-left: 20px;
+                border-radius: 3px;
+                margin-right: 20px;
+            }
+            .copyAddressBtn{
+                width: 10%;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                border:1px solid #02AA49;
+                color: #02AA49;
+                background: #fff;
+                cursor: pointer;
+                border-radius: 3px;
+            }
+            .copyAddressBtn:hover{
+                border-color: #1E9279;
+                color: #1E9279;
+            }
+            .mt20{
+                margin-top: 20px;
+            }
+            .line{
+                width: 100%;
+                height: 1px;
+                background: #E7E7E7;
+                margin-top: 10px;
+            }
+           
+           
+    </style>
+
+</head>
+
+<body>
+
+    <div id="preloader" class="d-none">
+        <div class="loader d-none">
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__ball"></div>
+        </div>
+    </div>
+
+
+    <!-- header -->
+    <div class="header">
+            <div class="nav-header">
+                <div class="brand-logo">
+                    <a href="index.html">
+                        <!-- <i class="icofont icofont-dart"></i> -->   
+                        <span class="brand-title">Mercurity</span>
+                    </a>
+                </div>
+            </div>
+    
+            <div class="header-content">
+                <div class="header-left d-flex">
+                    <div class="nav-control">
+                        <div class="hamburger">
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                        </div>   
+                    </div>    
+                </div>
+            </div>
+            <div class="navbar-custom-menu pull-right d-flex nav-right">   
+                <div class="dropdown">
+                    <a class="dropdown-toggle user-profile-dropdown" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="user-img">
+                        </span>
+                        <span class="user-name" id="emailName"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#" id="logoutBtn">
+                            <i class="fa fa-power-off" aria-hidden="true"></i> Logout
+                        </a>
+                    </div>
+                </div>
+    
+            </div>
+    </div>
+    <!-- #/ header -->
+
+
+    <!-- sidebar -->
+    <div class="nk-sidebar">
+            <div class="nk-nav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li style="padding-top: 22px;">
+                        <a href="index.html" aria-expanded="true">
+                            <i class="fa fa-dashboard"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" aria-expanded="false" id="akyc">
+                            <i class="fa fa-user"></i>
+                            <span class="nav-text">KYC/AML</span>
+                        </a>
+                    </li>
+                    <li>
+                            <a class="has-arrow" href="#" aria-expanded="false">
+                                <i class="fa fa-folder-open"></i>
+                                <span class="nav-text">My Transaction</span>
+                            </a>
+                            <ul aria-expanded="false">
+                                    <li>
+                                        <a href="convertOrder.html">Purchase Order</a>
+                                    </li>
+                                    <li>
+                                        <a href="redeemOrder.html">Redeem Order</a>
+                                    </li>
+                            </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- #/ nk nav scroll -->
+    </div>
+    <!-- #/ sidebar -->
+
+    <div class="content-body" id="container">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="page-title">Convert Token to Fiat</h2>
+                    <p>Please Send Your Funds Now</p>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="faq-section">
+            <div class="container-fluid">
+                <!-- add message tip -->
+                <div class="container-fluid payList m-b-20" style="padding-top:20px;padding-bottom: 10px;">
+                    <div class="row">
+                       <div class="col-lg-12">
+                           <p>The minimum redemption amount is 10,000 USDD. If  you plan to redeem more than 50,000 USDD, please contact us at service@Mercurity.money for special instructions. </p>
+                           <p>Fiat transfers between banks may generally take up to 5-7 business days, and in
+                                some areas more than 15 days. Mercurity is not responsible for any delays in
+                                delivering funds to you. </p>
+                           <p>Currently, Mercurity does not charge any transaction fees for redemption. However
+                                please note that a transfer fee may be charged by third-party banks or other
+                                financial institutions. Any such fees may be deducted automatically by third-party
+                                banks. </p>
+                       </div>
+                    </div>
+                </div>
+                
+                <!-- add step1 -->
+                <div class="container-fluid payList m-b-20">
+                        <div class="row">
+                            <h4 style="color: #2c3645;padding-top: 20px;" class="col-lg-12">To request a redemption of USDD, please follow the steps below:</h4>
+                            <div class="line"></div>
+                            <div class="col-lg-12 stepTitle">STEP 1</div>
+                            <div class="col-lg-12">Complete in your receiving bank account information. Mercurity shall not be responsible to you for any losses due to missing, incomplete or inaccurate information provided by you.</div>
+                            <div class="col-lg-12 clearfix" v-if="payList.payment_type=='wire'">
+                                <div class="col-lg-6 fl">
+                                    <div class="clearfix mb20">
+                                        <div class="fl gatherfl">Payment Type : </div>
+                                        <div class="fl gatherfr">&nbsp;&nbsp;{{payList.payment_type}}</div>
+                                    </div>
+                                    <div class="clearfix mb20">
+                                        <div class="fl gatherfl">Bank Account Name : </div>
+                                        <div class="fl gatherfr">&nbsp;&nbsp;{{payList.bank_account_name}}</div>
+                                    </div>
+                                    <div class="clearfix mb20">
+                                        <div class="fl gatherfl">Bank Account Number : </div>
+                                        <div class="fl gatherfr">&nbsp;&nbsp;{{payList.bank_account_number}}</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 fl">
+                                    <div class="clearfix mb20">
+                                        <div class="fl gatherfl">Contact Name : </div>
+                                        <div class="fl gatherfr">&nbsp;&nbsp;{{payList.contact_name}}</div>
+                                    </div>
+                                    <div class="clearfix mb20">
+                                        <div class="fl gatherfl">Contact Email : </div>
+                                        <div class="fl gatherfr">&nbsp;&nbsp;{{payList.contact_email}}</div>
+                                    </div>
+                                    <div class="clearfix mb20">
+                                        <div class="fl gatherfl">Routing Number : </div>
+                                        <div class="fl gatherfr">&nbsp;&nbsp;{{payList.routing_number}}</div>
+                                    </div>                              
+                                </div>
+                            </div>
+                            <div class="col-lg-12 clearfix" v-if="payList.payment_type=='wire_international'">
+                                    <div class="col-lg-6 fl">
+                                        <div class="clearfix mb20">
+                                            <div class="fl gatherfl">Payment Type : </div>
+                                            <div class="fl gatherfr">&nbsp;&nbsp;{{payList.payment_type}}</div>
+                                        </div>
+                                        <div class="clearfix mb20">
+                                            <div class="fl gatherfl">Bank Name : </div>
+                                            <div class="fl gatherfr">&nbsp;&nbsp;{{payList.bank_name}}</div>
+                                        </div>
+                                        <div class="clearfix mb20">
+                                            <div class="fl gatherfl">Bank Account Name : </div>
+                                            <div class="fl gatherfr">&nbsp;&nbsp;{{payList.bank_account_name}}</div>
+                                        </div>
+                                        <div class="clearfix mb20">
+                                            <div class="fl gatherfl">Bank Account Number : </div>
+                                            <div class="fl gatherfr">&nbsp;&nbsp;{{payList.bank_account_number}}</div>
+                                        </div>
+                                        <div class="clearfix mb20">
+                                            <div class="fl gatherfl">Contact Name : </div>
+                                            <div class="fl gatherfr">&nbsp;&nbsp;{{payList.contact_name}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 fl">
+                                        <div class="clearfix mb20">
+                                            <div class="fl gatherfl">Contact Email : </div>
+                                            <div class="fl gatherfr">&nbsp;&nbsp;{{payList.contact_email}}</div>
+                                        </div>
+                                        <div class="clearfix mb20">
+                                            <div class="fl gatherfl">Intermediary Bank Name : </div>
+                                            <div class="fl gatherfr">&nbsp;&nbsp;{{payList.intermediary_bank_name}}</div>
+                                        </div>
+                                        <div class="clearfix mb20">
+                                            <div class="fl gatherfl">Intermediary Bank Reference : </div>
+                                            <div class="fl gatherfr">&nbsp;&nbsp;{{payList.intermediary_bank_reference}}</div>
+                                        </div>
+                                        <div class="clearfix mb20">
+                                            <div class="fl gatherfl">Swift Code : </div>
+                                            <div class="fl gatherfr">&nbsp;&nbsp;{{payList.swift_code}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                           
+                            <div class="col-lg-12 mt20">
+                                <button type="button" class="btn button btn-success btn-radius changeBtn" @click="changeRedeem">edit bank account info</button>
+                            </div>
+                            
+                        </div>
+                </div>
+                <!-- step1 end -->
+                <!-- step2 -->
+                <div class="container-fluid payList m-b-20">
+                        <div class="row">
+                            <div class="col-lg-12 clearfix">
+                                <div class="stepTitle">STEP 2</div>
+                                <p>Send your USDD tokens to the ERC-20 Wallet Address below </p>
+                                <div style="color: #2c3645;">You can scan the following QR code with your IMTOKEN App or other apps for quick transfer</div>
+                                <div class="qrcode">
+                                    <div id="QRImg" class="codeImg"></div>
+                                </div>
+                                <div style="color: #2c3645;margin-bottom: 20px">Or just copy the following ERC20 Wallet Address </div>
+                                <div class="copyAddressBox fl">{{usddAddress}}</div><div @click="copyCode" id="copyNote" :data-clipboard-text="usddAddress" class="fl copyAddressBtn">copy</div>
+                                <p> </p>
+                                
+                            </div>
+                        </div>
+                </div>
+                <!-- step2 end -->
+                <!-- step3  -->
+                <div class="container-fluid payList m-b-10">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="stepTitle">STEP 3</div>
+                            <p>Once you complete the token transfer, please input the "Transaction ID" below</p>
+                            <div class="m-b-30 mt20">
+                                <h6>Transaction ID</h6>
+                                <input type="text" class="form-control" v-model="orderhash" placeholder="A 64-bit hash string starting with 0x" maxlength="66" @blur="bindOrderhash">
+                                <p class="hashTip"></p>
+                                <span>The transaction ID is the transaction signature, indicating that the transfer is successful, please be sure to fill out.</span>
+                            </div>
+                            <!-- <div class="card-body"> -->
+                                <button type="button" class="btn button btn-success btn-radius" @click="sendradeem">Submit Application</button>
+                            <!-- </div> -->
+
+                        </div>
+                    </div>
+                </div>
+                <!-- step3 end -->
+               
+      
+       
+        </div>
+        
+       
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="copyright">&copy; Copyright 2018 by Tortoiz. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- Modernizr-3 -->
+    <!-- jQuery -->
+    <script src="../assets/plugins/common/common.min.js"></script>
+
+
+    <!-- custom scripts -->
+    <script src="js/scripts.js"></script>
+    <!-- new jQuery -->
+    <script src="js/vue.min.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/qrcode.min.js"></script>
+    <script src="js/clipboard.min.js"></script>
+    <script>
+            var vue = new Vue({
+                  el:'#container',
+                  data: function data() {
+                    return {
+                        orderhash: '',
+                        usddAddress: '',
+                        ifHash: '',
+                        payList: []
+                    };
+                  },
+                  components: {},
+                  methods: {
+                    bindOrderhash () {
+                        var reg = /^0x[A-Za-z0-9]{64}$/
+                        if(this.orderhash==''){
+                            $('.hashTip').html('This field is required!')
+                            this.ifHash = false
+                        }
+                        else if (!reg.test(this.orderhash) && this.orderhash) {
+                            $('.hashTip').html('Transaction ID format error,it should be a 64-bit hash string starting with 0x!')
+                            this.ifHash = false
+                            
+                        } else {
+                            $('.hashTip').html('')
+                            this.ifHash = true
+                        }
+                    },
+                    copyCode () {
+                        var clipboard = new Clipboard('#copyNote')
+                        $('#copyNote').html('copied')
+                        console.log(clipboard)
+                    },
+                    qrCode () {
+                        var qrcode = new QRCode(document.getElementById('QRImg'), {
+                            width: 200,
+                            height: 200
+                        })
+                        qrcode.makeCode(this.usddAddress)
+                    },
+                    getAddress () {
+                        axios({
+                                method: 'post',
+                                url: 'http://39.106.60.55:8081/user/SelectContractAddress',
+                                headers:{
+                                    token:localStorage.getItem('loginToken')
+                                }
+                               
+                            }).then(response => {
+                                var data = response.data
+                                if (data.code === '200') {
+                                    this.usddAddress = data.data.USDD
+                                    this.qrCode()
+                                    
+                                } else if (data.code === '500') {
+                                    alert(data.message)
+                                    if(data.data.status==='499'){
+                                        localStorage.clear()
+                                        $(location).attr('href', 'login.html')
+                                    }
+                                }else if(data.code==='499'){
+                                    
+                                }
+                            }).catch(errortip => {})       
+                },
+                    getPayList () {
+                        axios({
+                                method: 'post',
+                                url: 'http://39.106.60.55:8081/user/getPaytMethodInfo',
+                                headers:{
+                                    token:localStorage.getItem('loginToken')
+                                },    
+                            }).then(response => {
+                                var data = response.data
+                                if (data.code === '200') {
+                                    this.payList = data.data
+                                    
+                                } else if (data.code === '500') {
+                                    alert(data.message)
+                                    if(data.data.status==='499'){
+                                        localStorage.clear()
+                                        $(location).attr('href', 'login.html')
+                                    }
+                                }else if(data.code==='499'){
+                                    
+                                }
+                            }).catch(errortip => {})       
+                        },
+                    sendradeem () {
+                        if (this.ifHash === true){
+                            axios({
+                                method: 'post',
+                                url: 'http://39.106.60.55:8081/user/disbursementsHashCheck',
+                                headers:{
+                                    token:localStorage.getItem('loginToken')
+                                },    
+                                params:{
+                                    orderhash: this.orderhash
+                                }  
+                            }).then(response => {
+                                var data = response.data
+                                if (data.code === '200') {
+
+                                    $(location).attr('href', "redeemTokenClose.html")                                   
+                                } else if (data.code === '500') {
+                                    alert(data.message)
+                                    if(data.data.status==='499'){
+                                        localStorage.clear()
+                                        $(location).attr('href', 'login.html')
+                                    }
+                                    
+                                }else if(data.code==='499'){
+                                    localStorage.clear()
+                                    $(location).attr('href', 'login.html')
+                                }
+                            }).catch(errortip => {})  
+                        }else{
+                           alert('Transaction ID error!')
+                        }                             
+                    },
+                    changeRedeem(){
+                        $(location).attr('href', 'changeRedeemAddress.html')
+                    }
+                },
+                  mounted: function mounted() {
+                    this.getAddress()
+                    this.getPayList()
+                }
+        });
+        // jq
+        function getEmail(){
+            var email = localStorage.getItem('email');
+            $("#emailName").html(email);
+        }
+        window.onload = function() {
+            getEmail()
+            getHome()
+        }
+    </script>
+
+</body>
+
+</html>
